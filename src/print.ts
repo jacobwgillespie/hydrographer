@@ -57,14 +57,6 @@ export function print(node: Node): string {
 
   // Fields --------------------------------------------------------------------
 
-  // if (node instanceof StringField) {
-  //   return `"{{ ${printExpression(node)} }}"`
-  // }
-
-  // if (node instanceof NumberField || node instanceof BooleanField || node instanceof NullField) {
-  //   return `{{ ${printExpression(node)} }}`
-  // }
-
   if (node instanceof ArrayField || node instanceof ObjectField) {
     return 'TODO:ARRAY/OBJECT'
   }
