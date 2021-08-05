@@ -3,29 +3,21 @@ import {
   ArrayContainer,
   ArrayField,
   Block,
-  BooleanPrimitive,
   Expression,
   Field,
   FunctionExpression,
   Node,
-  NullPrimitive,
-  NumberPrimitive,
   ObjectChild,
   ObjectContainer,
   ObjectField,
   PipeExpression,
-  StringPrimitive,
+  Primitive,
 } from './ast'
 
 export function print(node: Node): string {
   // Primitives ----------------------------------------------------------------
 
-  if (
-    node instanceof StringPrimitive ||
-    node instanceof NumberPrimitive ||
-    node instanceof BooleanPrimitive ||
-    node instanceof NullPrimitive
-  ) {
+  if (node instanceof Primitive) {
     return JSON.stringify(node.value)
   }
 
