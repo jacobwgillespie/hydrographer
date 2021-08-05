@@ -1,7 +1,10 @@
 import {
   ArrayChild,
   ArrayContainer,
+  Block,
   BooleanPrimitive,
+  Expression,
+  ExpressionType,
   Node,
   NullPrimitive,
   NumberPrimitive,
@@ -9,8 +12,16 @@ import {
   ObjectContainer,
   StringPrimitive,
 } from './ast'
-import {Template} from './types'
-import {assertNever} from './utils'
+
+export type Template =
+  | null
+  | string
+  | number
+  | boolean
+  | Expression<ExpressionType>
+  | Block
+  | Array<Template>
+  | {[key: string]: Template}
 
 export function parse(template: Template): Node {
   if (template instanceof Node) return template
@@ -29,4 +40,8 @@ export function parse(template: Template): Node {
   }
 
   assertNever(template)
+}
+
+function assertNever(value: never): never {
+  throw new Error(`Unexpected value: ${value}`)
 }

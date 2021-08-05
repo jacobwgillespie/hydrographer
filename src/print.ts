@@ -1,17 +1,21 @@
 import {
   ArrayChild,
   ArrayContainer,
+  ArrayField,
+  Block,
   BooleanPrimitive,
+  Expression,
+  Field,
+  FunctionExpression,
   Node,
   NullPrimitive,
   NumberPrimitive,
   ObjectChild,
   ObjectContainer,
+  ObjectField,
+  PipeExpression,
   StringPrimitive,
 } from './ast'
-import {ArrayField, Field, ObjectField} from './fields'
-import {Block, Expression, FunctionExpression, PipeExpression} from './interpolations'
-import {indent} from './utils'
 
 export function print(node: Node): string {
   // Primitives ----------------------------------------------------------------
@@ -32,15 +36,17 @@ export function print(node: Node): string {
     return node.children.map((item) => print(item)).join('\n')
   }
 
+  if (node instanceof ObjectContainer) {
+    if (node.isEmpty) return '{}'
+    return node.children.map((item) => print(item)).join('\n')
+  }
+
+  // Container Children --------------------------------------------------------
+
   if (node instanceof ArrayChild) {
     return node.value instanceof ArrayContainer && !node.value.isEmpty
       ? `- \n${indent(print(node.value), 2)}`
       : `- ${indent(print(node.value), 2, 0)}`
-  }
-
-  if (node instanceof ObjectContainer) {
-    if (node.isEmpty) return '{}'
-    return node.children.map((item) => print(item)).join('\n')
   }
 
   if (node instanceof ObjectChild) {
@@ -94,4 +100,12 @@ function printExpression(exp: Expression): string {
     return `${exp.name} ${exp.params.map((param) => printExpression(param)).join(' ')}`
 
   throw new Error(`Unsupported expression: ${exp}`)
+}
+
+function indent(value: string, indent: number, indentFirst = indent): string {
+  const lines = value.split('\n')
+  const indentStr = ' '.repeat(indent)
+  const indentFirstStr = ' '.repeat(indentFirst)
+
+  return lines.map((line, idx) => (idx === 0 ? `${indentFirstStr}${line}` : `${indentStr}${line}`)).join('\n')
 }

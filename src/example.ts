@@ -1,8 +1,5 @@
 import util from 'util'
-import {Release, Values} from './fields'
-import {fn} from './functions'
-import {parse} from './parse'
-import {print} from './print'
+import {fn, parse, print, Release, Values} from '.'
 
 /*
 apiVersion: v1
@@ -67,6 +64,7 @@ async function run() {
 
   const ast = parse(template)
   console.log(util.formatWithOptions({colors: true, depth: 20}, ast))
+  console.log()
   console.log(print(ast))
 }
 
