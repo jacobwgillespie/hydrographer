@@ -28,8 +28,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                              |
+| :--------- | :-------------------------------- |
 | `children` | [`ObjectChild`](objectchild.md)[] |
 
 #### Overrides

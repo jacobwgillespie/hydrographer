@@ -26,8 +26,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                            |
+| :--------- | :------------------------------ |
 | `children` | [`BlockChild`](blockchild.md)[] |
 
 #### Overrides

@@ -28,8 +28,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                            |
+| :--------- | :------------------------------ |
 | `children` | [`ArrayChild`](arraychild.md)[] |
 
 #### Overrides

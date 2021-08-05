@@ -25,10 +25,10 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                                                             |
+| :----------- | :------------------------------------------------------------------------------- |
 | `expression` | [`Expression`](expression.md)<[`ExpressionType`](../modules.md#expressiontype)\> |
-| `children` | [`Node`](node.md)[] |
+| `children`   | [`Node`](node.md)[]                                                              |
 
 #### Overrides
 
@@ -44,7 +44,7 @@
 
 • `Readonly` **children**: [`Node`](node.md)[]
 
-___
+---
 
 ### expression
 

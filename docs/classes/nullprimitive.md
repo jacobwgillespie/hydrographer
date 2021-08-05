@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- [`Primitive`](primitive.md)<``null``\>
+- [`Primitive`](primitive.md)<`null`\>
 
   ↳ **`NullPrimitive`**
 
@@ -30,7 +30,7 @@
 
 ### value
 
-• `Readonly` **value**: ``null``
+• `Readonly` **value**: `null`
 
 #### Overrides
 

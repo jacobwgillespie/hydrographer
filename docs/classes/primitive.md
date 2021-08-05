@@ -3,8 +3,8 @@
 ## Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 ## Hierarchy
 
@@ -39,8 +39,8 @@
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Inherited from
 

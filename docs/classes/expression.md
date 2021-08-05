@@ -2,9 +2,9 @@
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 ## Hierarchy
 
@@ -38,9 +38,9 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 #### Inherited from
 
@@ -64,14 +64,14 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                     |
+| :----- | :------------------------------------------------------- |
 | `Next` | extends [`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                   |
+| :----- | :------------------------------------- |
 | `next` | [`Expression`](expression.md)<`Next`\> |
 
 #### Returns

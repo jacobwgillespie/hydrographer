@@ -25,7 +25,7 @@
 
 [index.ts:26](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L26)
 
-___
+---
 
 ### asBoolean
 
@@ -39,7 +39,7 @@ ___
 
 [index.ts:24](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L24)
 
-___
+---
 
 ### asNull
 
@@ -53,7 +53,7 @@ ___
 
 [index.ts:25](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L25)
 
-___
+---
 
 ### asNumber
 
@@ -67,7 +67,7 @@ ___
 
 [index.ts:23](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L23)
 
-___
+---
 
 ### asObject
 
@@ -81,7 +81,7 @@ ___
 
 [index.ts:27](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L27)
 
-___
+---
 
 ### asString
 

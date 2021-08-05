@@ -2,9 +2,9 @@
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 ## Hierarchy
 
@@ -36,16 +36,16 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `left` | [`Expression`](expression.md)<[`ExpressionType`](../modules.md#expressiontype)\> |
-| `right` | [`Expression`](expression.md)<`T`\> |
+| Name    | Type                                                                             |
+| :------ | :------------------------------------------------------------------------------- |
+| `left`  | [`Expression`](expression.md)<[`ExpressionType`](../modules.md#expressiontype)\> |
+| `right` | [`Expression`](expression.md)<`T`\>                                              |
 
 #### Overrides
 
@@ -61,13 +61,13 @@
 
 • `Readonly` **left**: [`Expression`](expression.md)<[`ExpressionType`](../modules.md#expressiontype)\>
 
-___
+---
 
 ### right
 
 • `Readonly` **right**: [`Expression`](expression.md)<`T`\>
 
-___
+---
 
 ### type
 
@@ -89,14 +89,14 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                     |
+| :----- | :------------------------------------------------------- |
 | `Next` | extends [`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                   |
+| :----- | :------------------------------------- |
 | `next` | [`Expression`](expression.md)<`Next`\> |
 
 #### Returns

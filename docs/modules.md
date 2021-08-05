@@ -56,17 +56,17 @@
 
 ### ExpressionType
 
-Ƭ **ExpressionType**: ``"null"`` \| ``"string"`` \| ``"number"`` \| ``"boolean"`` \| ``"array"`` \| ``"object"``
+Ƭ **ExpressionType**: `"null"` \| `"string"` \| `"number"` \| `"boolean"` \| `"array"` \| `"object"`
 
 #### Defined in
 
 [ast.ts:101](https://github.com/k8ts/hydrographer/blob/main/src/ast.ts#L101)
 
-___
+---
 
 ### Template
 
-Ƭ **Template**: ``null`` \| `string` \| `number` \| `boolean` \| [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\> \| [`Block`](classes/block.md) \| [`Template`](modules.md#template)[] \| { [key: string]: [`Template`](modules.md#template);  }
+Ƭ **Template**: `null` \| `string` \| `number` \| `boolean` \| [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\> \| [`Block`](classes/block.md) \| [`Template`](modules.md#template)[] \| { [key: string]: [`Template`](modules.md#template); }
 
 #### Defined in
 
@@ -82,7 +82,7 @@ ___
 
 [index.ts:36](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L36)
 
-___
+---
 
 ### Release
 
@@ -92,7 +92,7 @@ ___
 
 [index.ts:54](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L54)
 
-___
+---
 
 ### Values
 
@@ -102,7 +102,7 @@ ___
 
 [index.ts:62](https://github.com/k8ts/hydrographer/blob/main/src/index.ts#L62)
 
-___
+---
 
 ### fn
 
@@ -110,9 +110,9 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `if` | (`condition`: [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\>, `block`: [`Template`](modules.md#template)) => [`IfBlock`](classes/ifblock.md) |
+| Name     | Type                                                                                                                                                                                      |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `if`     | (`condition`: [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\>, `block`: [`Template`](modules.md#template)) => [`IfBlock`](classes/ifblock.md)       |
 | `toYaml` | (`input`: [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\>) => [`Expression`](classes/expression.md)<[`ExpressionType`](modules.md#expressiontype)\> |
 
 #### Defined in
@@ -127,8 +127,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                              |
+| :--------- | :-------------------------------- |
 | `template` | [`Template`](modules.md#template) |
 
 #### Returns
@@ -139,7 +139,7 @@ ___
 
 [parse.ts:26](https://github.com/k8ts/hydrographer/blob/main/src/parse.ts#L26)
 
-___
+---
 
 ### print
 
@@ -147,8 +147,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                      |
+| :----- | :------------------------ |
 | `node` | [`Node`](classes/node.md) |
 
 #### Returns

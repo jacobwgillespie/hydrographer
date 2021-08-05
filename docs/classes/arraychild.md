@@ -24,8 +24,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type              |
+| :------ | :---------------- |
 | `value` | [`Node`](node.md) |
 
 #### Overrides

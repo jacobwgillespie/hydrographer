@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- [`Field`](field.md)<``"string"``\>
+- [`Field`](field.md)<`"string"`\>
 
   ↳ **`StringField`**
 
@@ -29,8 +29,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                   |
+| :----- | :--------------------- |
 | `path` | `string` \| `string`[] |
 
 #### Overrides
@@ -55,11 +55,11 @@
 
 [ast.ts:129](https://github.com/k8ts/hydrographer/blob/main/src/ast.ts#L129)
 
-___
+---
 
 ### type
 
-• `Readonly` **type**: ``"string"``
+• `Readonly` **type**: `"string"`
 
 #### Inherited from
 
@@ -77,14 +77,14 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                     |
+| :----- | :------------------------------------------------------- |
 | `Next` | extends [`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                   |
+| :----- | :------------------------------------- |
 | `next` | [`Expression`](expression.md)<`Next`\> |
 
 #### Returns

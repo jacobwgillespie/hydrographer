@@ -2,9 +2,9 @@
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 ## Hierarchy
 
@@ -47,15 +47,15 @@
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
+| Name | Type                                                                                                     |
+| :--- | :------------------------------------------------------------------------------------------------------- |
+| `T`  | extends [`ExpressionType`](../modules.md#expressiontype)[`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `type` | `T` |
+| Name   | Type                   |
+| :----- | :--------------------- |
+| `type` | `T`                    |
 | `path` | `string` \| `string`[] |
 
 #### Overrides
@@ -76,7 +76,7 @@
 
 [ast.ts:129](https://github.com/k8ts/hydrographer/blob/main/src/ast.ts#L129)
 
-___
+---
 
 ### type
 
@@ -98,14 +98,14 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                                     |
+| :----- | :------------------------------------------------------- |
 | `Next` | extends [`ExpressionType`](../modules.md#expressiontype) |
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                                   |
+| :----- | :------------------------------------- |
 | `next` | [`Expression`](expression.md)<`Next`\> |
 
 #### Returns

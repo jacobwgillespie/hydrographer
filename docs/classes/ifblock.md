@@ -29,8 +29,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                            |
+| :--------- | :------------------------------ |
 | `children` | [`BlockChild`](blockchild.md)[] |
 
 #### Inherited from
@@ -59,8 +59,8 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                                 |
+| :------ | :----------------------------------- |
 | `block` | [`Template`](../modules.md#template) |
 
 #### Returns
@@ -71,7 +71,7 @@
 
 [ast.ts:91](https://github.com/k8ts/hydrographer/blob/main/src/ast.ts#L91)
 
-___
+---
 
 ### elseIf
 
@@ -79,10 +79,10 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type                                                                             |
+| :---------- | :------------------------------------------------------------------------------- |
 | `condition` | [`Expression`](expression.md)<[`ExpressionType`](../modules.md#expressiontype)\> |
-| `block` | [`Template`](../modules.md#template) |
+| `block`     | [`Template`](../modules.md#template)                                             |
 
 #### Returns
 

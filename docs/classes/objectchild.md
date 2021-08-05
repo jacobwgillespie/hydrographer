@@ -25,9 +25,9 @@
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name    | Type              |
+| :------ | :---------------- |
+| `key`   | `string`          |
 | `value` | [`Node`](node.md) |
 
 #### Overrides
@@ -44,7 +44,7 @@
 
 • `Readonly` **key**: `string`
 
-___
+---
 
 ### value
 
