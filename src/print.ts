@@ -1,3 +1,4 @@
+import {parse, PrimitiveExpression} from '.'
 import {
   ArrayChild,
   ArrayContainer,
@@ -14,7 +15,11 @@ import {
   Primitive,
 } from './ast'
 
-export function print(node: Node): string {
+export function print(node: Node, data: Record<string, any>, childIndent = 0): string {
+  // Pre-evaluate node ---------------------------------------------------------
+
+  node = node.eval(data)
+
   // Primitives ----------------------------------------------------------------
 
   if (node instanceof Primitive) {
@@ -25,38 +30,45 @@ export function print(node: Node): string {
 
   if (node instanceof ArrayContainer) {
     if (node.isEmpty) return '[]'
-    return node.children.map((item) => print(item)).join('\n')
+    return node.children.map((item) => print(item, data, childIndent)).join('\n')
   }
 
   if (node instanceof ObjectContainer) {
     if (node.isEmpty) return '{}'
-    return node.children.map((item) => print(item)).join('\n')
+    return node.children.map((item) => print(item, data, childIndent)).join('\n')
   }
 
   // Container Children --------------------------------------------------------
 
   if (node instanceof ArrayChild) {
     return node.value instanceof ArrayContainer && !node.value.isEmpty
-      ? `- \n${indent(print(node.value), 2)}`
-      : `- ${indent(print(node.value), 2, 0)}`
+      ? `- \n${indent(print(node.value, data, childIndent + 2), 2)}`
+      : `- ${indent(print(node.value, data, childIndent + 2), 2, 0)}`
   }
 
   if (node instanceof ObjectChild) {
-    return (node.value instanceof ArrayContainer || node.value instanceof ObjectContainer) && !node.value.isEmpty
-      ? `${node.key}: \n${indent(print(node.value), 2)}`
-      : `${node.key}: ${indent(print(node.value), 2, 0)}`
+    const isMultiline =
+      ((node.value instanceof ArrayContainer || node.value instanceof ObjectContainer) && !node.value.isEmpty) ||
+      node.value instanceof Block
+    return isMultiline
+      ? `${node.key}: \n${indent(print(node.value, data, childIndent + 2), 2)}`
+      : `${node.key}: ${indent(print(node.value, data, childIndent + 2), 2, 0)}`
   }
 
   // Fields --------------------------------------------------------------------
 
   if (node instanceof ArrayField || node instanceof ObjectField) {
-    return 'TODO:ARRAY/OBJECT'
+    return `{{ ${printExpression(node)} | toYaml | nindent ${childIndent} }}`
   }
 
   // Expressions ---------------------------------------------------------------
 
+  if (node instanceof PrimitiveExpression) {
+    return print(parse(node.value), data, childIndent)
+  }
+
   if (node instanceof Expression) {
-    if (node.type === 'string') return `"{{ ${printExpression(node)} }}"`
+    if (node.type === 'string') return `{{ ${printExpression(node)} | quote }}`
     else return `{{ ${printExpression(node)} }}`
   }
 
@@ -66,7 +78,7 @@ export function print(node: Node): string {
     const lines: string[] = []
     for (const child of node.children) {
       lines.push(`{{- ${printExpression(child.expression)} }}`)
-      lines.push(...child.children.map((child) => print(child)))
+      lines.push(...child.children.map((child) => print(child, data, childIndent)))
     }
     lines.push('{{- end }}')
     return lines.join('\n')
@@ -76,6 +88,8 @@ export function print(node: Node): string {
 }
 
 function printExpression(exp: Expression): string {
+  if (exp instanceof PrimitiveExpression) return JSON.stringify(exp.value)
+
   if (exp instanceof Field) return '.' + exp.path.join('.')
 
   if (exp instanceof PipeExpression) return `${printExpression(exp.left)} | ${exp.right}`
