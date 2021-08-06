@@ -6,6 +6,22 @@ async function run() {
   const serviceType = Values.service.type.asString()
   const servicePort = Values.service.port.asNumber()
 
+  // servicePort.set(8080)
+
+  const commonPort = {
+    port: servicePort,
+    targetPort: 'http',
+    protocol: 'TCP',
+    name: 'http',
+  }
+
+  const conditionalPort = {
+    port: servicePort,
+    targetPort: 'http',
+    protocol: 'TCP',
+    name: 'http-conditional',
+  }
+
   const template = {
     apiVersion: 'v1',
     kind: 'Service',
@@ -13,36 +29,13 @@ async function run() {
       name: fullname,
       namespace: Release.Namespace,
       labels: {},
-      example: Values.example.value.asString(),
     },
+    example: Values.example.asArray(),
     spec: {
       type: serviceType,
-      ports: [
-        {
-          port: servicePort,
-          targetPort: 'http',
-          protocol: 'TCP',
-          name: 'http',
-        },
-        fn
-          .if(Values.isEnabled.asBoolean(), {
-            enabled: true,
-          })
-          .elseIf(Values.otherwise.asBoolean(), {
-            enabled: false,
-          })
-          .else(Values.something.asString()),
-      ],
+      ports: [fn.if(Values.isEnabled.asBoolean(), commonPort).else([commonPort, conditionalPort])],
       selector: {
         a: 'hello',
-        b: fn
-          .if(Values.isEnabled.asBoolean(), {
-            enabled: true,
-          })
-          .elseIf(Values.otherwise.asBoolean(), {
-            enabled: false,
-          })
-          .else(Values.something.asString()),
       },
 
       array: [],
@@ -51,10 +44,15 @@ async function run() {
     },
   }
 
+  const data = {
+    'Values.service.port': 8080,
+    'Values.isEnabled': false,
+  }
+
   const ast = parse(template)
   console.log(util.formatWithOptions({colors: true, depth: 20}, ast))
   console.log()
-  console.log(print(ast))
+  console.log(print(ast, data))
 }
 
 run().catch((err) => {
