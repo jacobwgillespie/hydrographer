@@ -94,8 +94,10 @@ function printExpression(exp: Expression): string {
 
   if (exp instanceof PipeExpression) return `${printExpression(exp.left)} | ${exp.right}`
 
-  if (exp instanceof FunctionExpression)
-    return `${exp.name} ${exp.params.map((param) => printExpression(param)).join(' ')}`
+  if (exp instanceof FunctionExpression) {
+    if (exp.params.length > 0) return `${exp.name} ${exp.params.map((param) => printExpression(param)).join(' ')}`
+    else return exp.name
+  }
 
   throw new Error(`Unsupported expression: ${exp}`)
 }
