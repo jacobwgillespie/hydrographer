@@ -1,4 +1,4 @@
-import {parse, Template} from './parse'
+import {parse, Template} from '.'
 
 // Base node -------------------------------------------------------------------
 
