@@ -1,4 +1,4 @@
-import {parse, PrimitiveExpression} from '.'
+import {HelperExpression, parse, PrimitiveExpression} from '.'
 import {
   ArrayChild,
   ArrayContainer,
@@ -69,6 +69,8 @@ export function print(node: Node, data: Record<string, any>, childIndent = 0): s
 
   if (node instanceof Expression) {
     if (node.type === 'string') return `{{ ${printExpression(node)} | quote }}`
+    if (node.type === 'object' || node.type === 'array')
+      return `{{ ${printExpression(node)} | toYaml | nindent ${childIndent} }}`
     else return `{{ ${printExpression(node)} }}`
   }
 
@@ -89,6 +91,8 @@ export function print(node: Node, data: Record<string, any>, childIndent = 0): s
 
 function printExpression(exp: Expression): string {
   if (exp instanceof PrimitiveExpression) return JSON.stringify(exp.value)
+
+  if (exp instanceof HelperExpression) return `include "${exp.name}" .`
 
   if (exp instanceof Field) return '.' + exp.path.join('.')
 

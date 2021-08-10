@@ -1,5 +1,5 @@
 import util from 'util'
-import {fn, parse, print, Release, Values} from '.'
+import {fn, HelperExpression, parse, print, Release, Values} from '.'
 
 async function run() {
   const fullname = Values.fullname.asString()
@@ -22,6 +22,14 @@ async function run() {
     name: 'http-conditional',
   }
 
+  const selectorLabels = new HelperExpression(
+    'object',
+    'quarry.selectorLabels',
+    parse({
+      'app.kubernetes.io/instance': Release.Name,
+    }),
+  )
+
   const template = {
     apiVersion: 'v1',
     kind: 'Service',
@@ -34,9 +42,7 @@ async function run() {
     spec: {
       type: serviceType,
       ports: fn.if(Values.isEnabled.asBoolean(), [commonPort]).else([commonPort, conditionalPort]),
-      selector: {
-        a: 'hello',
-      },
+      selector: selectorLabels,
 
       array: [],
 

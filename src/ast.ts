@@ -215,6 +215,12 @@ export class FunctionExpression<T extends ExpressionType = ExpressionType> exten
   }
 }
 
+export class HelperExpression<T extends ExpressionType = ExpressionType> extends Expression<T> {
+  constructor(public readonly type: T, public readonly name: string, public readonly source: Node) {
+    super()
+  }
+}
+
 export abstract class Field<T extends ExpressionType = ExpressionType> extends Expression<T> {
   readonly type: T
   readonly path: string[]
