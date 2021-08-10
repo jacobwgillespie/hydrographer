@@ -198,10 +198,17 @@ export class FunctionExpression<T extends ExpressionType = ExpressionType> exten
 
     console.log({name: this.name, evaluatedParams})
 
-    if (this.name === 'if' && evaluatedParams.every((param) => param instanceof PrimitiveExpression)) {
+    if (
+      ['if', 'else if'].includes(this.name) &&
+      evaluatedParams.every((param) => param instanceof PrimitiveExpression)
+    ) {
       return new BooleanExpression(
         (evaluatedParams as PrimitiveExpression<boolean>[]).every((param) => Boolean(param.value)),
       )
+    }
+
+    if (this.name === 'else') {
+      return new BooleanExpression(true)
     }
 
     return this

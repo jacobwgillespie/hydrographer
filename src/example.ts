@@ -33,7 +33,7 @@ async function run() {
     example: Values.example.asArray(),
     spec: {
       type: serviceType,
-      ports: [fn.if(Values.isEnabled.asBoolean(), commonPort).else([commonPort, conditionalPort])],
+      ports: fn.if(Values.isEnabled.asBoolean(), [commonPort]).else([commonPort, conditionalPort]),
       selector: {
         a: 'hello',
       },
