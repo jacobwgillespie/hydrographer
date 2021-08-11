@@ -23,6 +23,7 @@ import {
 } from './ast'
 
 export * from './ast'
+export * from './chart'
 export * from './print'
 
 // Types -----------------------------------------------------------------------

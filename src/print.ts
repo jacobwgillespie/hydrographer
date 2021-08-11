@@ -68,6 +68,14 @@ export function print(node: Node, data: Record<string, any>, childIndent = 0): s
   }
 
   if (node instanceof Expression) {
+    // Helper includes are already escaped
+    if (node instanceof HelperExpression) {
+      if (node.type === 'string') return `{{ ${printExpression(node)} }}`
+      if (node.type === 'object' || node.type === 'array')
+        return `{{ ${printExpression(node)} | nindent ${childIndent} }}`
+      else return `{{ ${printExpression(node)} }}`
+    }
+
     if (node.type === 'string') return `{{ ${printExpression(node)} | quote }}`
     if (node.type === 'object' || node.type === 'array')
       return `{{ ${printExpression(node)} | toYaml | nindent ${childIndent} }}`
